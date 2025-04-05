@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -584,7 +584,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {},
         pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -596,6 +596,7 @@ require('lazy').setup({
         -- ts_ls = {},
         vtsls = {},
         dockerls = {},
+        docker_compose_language_service = {},
         css_variables = {},
         cssls = {},
         dotls = {},
@@ -930,6 +931,7 @@ require('lazy').setup({
   require 'kickstart.plugins.lazygit',
   require 'kickstart.plugins.trouble',
   require 'kickstart.plugins.harpoon',
+  require 'kickstart.plugins.sqls',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
