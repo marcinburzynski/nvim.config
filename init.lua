@@ -534,6 +534,11 @@ require('lazy').setup({
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
+
+          if client then
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end
         end,
       })
 
@@ -605,7 +610,7 @@ require('lazy').setup({
         mdx_analyzer = {},
         nextls = {},
         -- nginx_language_server = {},
-        -- sqls = {},
+        sqls = {},
         tailwindcss = {},
         lua_ls = {
           -- cmd = { ... },
@@ -931,7 +936,6 @@ require('lazy').setup({
   require 'kickstart.plugins.lazygit',
   require 'kickstart.plugins.trouble',
   require 'kickstart.plugins.harpoon',
-  require 'kickstart.plugins.sqls',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
