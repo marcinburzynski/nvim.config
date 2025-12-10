@@ -78,9 +78,12 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -331,6 +334,9 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          path_display = { 'smart' },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -747,7 +753,11 @@ require('lazy').setup({
           --   end,
           -- },
         },
-        opts = {},
+        opts = {
+          history = true,
+          region_check_events = 'InsertEnter',
+          delete_check_events = 'TextChanged,InsertLeave',
+        },
       },
       'folke/lazydev.nvim',
     },
